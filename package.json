@@ -1,0 +1,47 @@
+{
+  "name": "kda",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node build/index.js",
+    "build": "npm run build:clean && npm run build:compile",
+    "build:start": "npm run build && npm run start",
+    "build:clean": "rimraf build/",
+    "build:compile": "swc src -d build -D",
+    "dev": "cross-env NODE_ENV=development nodemon --exec node -r @swc-node/register src/index.ts",
+    "dev:start": "cross-env NODE_ENV=development node -r @swc-node/register src/index.ts",
+    "dev:compile": "swc src -w -d build",
+    "linter": "eslint \"./**/*.ts\"",
+    "linter:fix": "eslint \"./**/*.ts\" --fix"
+  },
+  "dependencies": {
+    "@discordx/di": "^3.0.3",
+    "@discordx/importer": "^1.1.10",
+    "@discordx/pagination": "^3.4.1",
+    "@discordx/utilities": "^5.2.1",
+    "discord.js": "^14.8.0",
+    "discordx": "^11.7.1",
+    "dotenv": "^16.0.3",
+    "reflect-metadata": "^0.1.13",
+    "rentry-pastebin": "^1.3.0",
+    "tsyringe": "^4.7.0"
+  },
+  "devDependencies": {
+    "@swc-node/register": "^1.6.2",
+    "@swc/cli": "^0.1.62",
+    "@swc/core": "^1.3.39",
+    "@types/node": "^18.15.0",
+    "@typescript-eslint/eslint-plugin": "^5.54.1",
+    "@typescript-eslint/parser": "^5.54.1",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "nodemon": "^2.0.21",
+    "prettier": "^2.8.4",
+    "rimraf": "^4.4.0",
+    "typescript": "^4.9.5"
+  }
+}
